@@ -37,7 +37,7 @@
             android:ems="10"
             android:inputType="text"
             android:text=""
-            android:hint="Podaj adres email"
+            android:hint="email"
             />
 
         <TextView
@@ -54,7 +54,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="text"
+            android:inputType="textPassword"
             android:text=""
             android:hint="Podaj haslo"/>
 
@@ -88,6 +88,7 @@
         <TextView
             android:id="@+id/welcomeTextView"
             android:layout_marginTop="5dp"
+            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="" />

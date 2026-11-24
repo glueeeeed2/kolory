@@ -1,6 +1,7 @@
 package com.example.kolory_egzamin;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -28,6 +29,25 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView welcomeTextView;
 
+    private String email;
+    private String password;
+    private String repeatedPassword;
+
+
+    boolean validatePassword() {
+        if (!password.equals(repeatedPassword)) {
+            return false;
+        }
+        return true;
+    }
+
+    boolean validateEmail() {
+        if (!email.contains("@")) {
+            return false;
+        }
+        return true;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +69,29 @@ public class MainActivity extends AppCompatActivity {
         welcomeTextView = findViewById(R.id.welcomeTextView);
 
 
+        registerBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                email = emailEditText.getText().toString();
+                password = passwordEditText.getText().toString();
+                repeatedPassword = repPasswordEditText.getText().toString();
+
+                if (!validateEmail()) {
+                    welcomeTextView.setText("Nieprawidlowy adres email!");
+                    return;
+                }
+                if (!validatePassword()) {
+                    welcomeTextView.setText("Hasla roznia sie!");
+                    return;
+                }
+
+                welcomeTextView.setText("Witaj " + email);
+
+
+
+            }
+        });
 
     }
 }
